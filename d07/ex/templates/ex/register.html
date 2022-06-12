@@ -1,0 +1,17 @@
+{% extends 'ex/base.html' %}
+
+{% block title %}
+<title>Register</title>
+{% endblock %}
+
+{% block content %}
+{{ error }}
+<form action={% url 'Register' %} method='POST'>
+	{% csrf_token %}
+	<fieldset>
+		<legend>Register:</legend>
+		{{ form.as_p }}
+		<input type="submit" value="submit">
+	</fieldset>
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Remove</title>
+</head>
+<body>
+	{% if values|length == 0 %}
+	<p>No data available</p>
+	{% else %}
+	<form method="POST">
+		{% csrf_token %}
+		<select name="movie_form">
+			{% for v in values %}
+			<option value="{{ v.0 }}">{{ v.1 }}</option>
+			{% endfor %}
+		</select>
+		<input type="submit" value="remove">
+	</form>
+	{% endif %}
+</body>
+</html>

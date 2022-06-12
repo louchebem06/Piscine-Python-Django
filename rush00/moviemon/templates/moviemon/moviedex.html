@@ -1,0 +1,25 @@
+{% extends "moviemon/base.html" %}
+
+{% block content %}
+<div class="moviedex">
+    <h1 class="title-screen">MovieDex</h1>
+	{% for monster in monsters %}
+        <div {% if select == forloop.counter %}class="active_monster"{% endif %}>
+            <img alt="monster poster" src="{{ monster.Poster }}">
+            {% if select|add:-1 == forloop.counter %}
+                <p><a id="focus_monster">{{ monster.Title }}</a></p>
+            {% else %}
+                <p>{{ monster.Title }}</p>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p class="center">You don't have any Moviemon.</p>
+	{% endfor %}
+</div>
+<ul class="ask_press right">
+    <li><span class="key">A</span> - Detail of the moviemon</li>
+    <li><span class="key">SELECT</span> - Return to game</li>
+    <li {% if btn.top == '#focus_monster' %}class="red"{% endif %}><span class="key">▲</span> - Move top</li>
+    <li {% if btn.bottom == '#focus_monster' %}class="red"{% endif %}><span class="key">▼</span> - Move bottom</li>
+</ul>
+{% endblock %}

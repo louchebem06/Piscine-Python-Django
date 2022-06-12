@@ -1,0 +1,278 @@
+/* css reset */
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+a, a:hover, a:active {
+	text-decoration: none;
+	color: white;
+}
+/* --- */
+
+html {
+	font-family: sans-serif;
+}
+
+#gameboy {
+	/* Dimention GameBoy Color : 133,5 x 78 x 27,4 mm */
+	--ratioGameBoy: 6;
+	width: calc(var(--ratioGameBoy) * 78.4px);
+	height: calc(var(--ratioGameBoy) * 133.5px);
+	background-color: #4f50db;
+	border-radius: 20px;
+	position: absolute;
+	margin: 5px;
+	box-shadow: 4px 4px 0px black;
+}
+
+#gameboy {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.backlight {
+	position: relative;
+	width: 90%;
+	height: 50%;
+	border-radius:20px;
+	background-color: black;
+	display: block;
+	margin: auto;
+	margin-top: 5%;
+	display: flex;
+	flex-direction: column;
+}
+
+.content-screen {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content:space-between;
+}
+
+.content-screen .power, .content-screen .empty {
+	width: 10%;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+#screen {
+	--screenSize:325px;
+	width: var(--screenSize);
+	height: var(--screenSize);
+	background-color: green;
+	margin-top: 5%;
+	border-radius: 5px;
+}
+
+#logo {
+	text-align: center;
+	font-size:22px;
+    letter-spacing:-1px;
+	line-height: 50px;
+}
+
+#logo p {
+	display:inline-block;
+	font-weight:bold;
+	font-family:"Comic Sans MS";
+	margin: 0;
+	cursor: pointer;
+}
+
+#logo p.l {
+	transform: rotate(-7deg);
+}
+
+#logo p.o {
+	font-size:19px;
+}
+
+#logo p:nth-child(1) { color: #cdcdcd; }
+#logo p:nth-child(2) { color: #aa2058; }
+#logo p:nth-child(3) { color: #605bd9; }
+#logo p:nth-child(4) { color: #78b930; }
+#logo p:nth-child(5) { color: #b6b524; }
+#logo p:nth-child(6) { color: #317aaf; }
+
+.content_power .red { background-color: red }
+.content_power .grey { background-color: #cdcdcd }
+.content_power .green { background-color: green }
+
+.power { margin-top: 20%; }
+
+.content_power {
+	--sizeBulle: 8px;
+	display: flex;
+	flex-direction: row;
+	gap: 2px;
+}
+
+.bulle {
+	width: var(--sizeBulle);
+	height: var(--sizeBulle);
+	border-radius: var(--sizeBulle);
+}
+
+.demi-bulle {
+	width: var(--sizeBulle);
+	height: var(--sizeBulle);
+	border-radius: var(--sizeBulle);
+}
+
+.power p {
+	font-size:10px;
+	color: #cdcdcd;
+}
+
+.nintendo_logo {
+	text-align: center;
+	width: 110px;
+	height: 10px;
+	line-height: 20px;
+	display: block;
+	margin: auto;
+}
+
+.nintendo_logo p {
+	font-weight:bold;
+	color: rgba(0,0,0,0.40);
+	border: 2px solid rgba(0,0,0,0.40);
+	border-radius: 10px;
+	font-size: 20px;
+	padding-top: 2px;
+}
+
+.start-select {
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+	gap: 20px;
+}
+
+.button_option {
+	background-color: #222;
+	width: 50px;
+	height: 15px;
+	border-radius: 10px;
+	display: block;
+	margin: auto;
+	box-shadow: 0px 4px 0px black;
+}
+
+.button_option:active {
+	margin-top: 4px;
+	margin-bottom: -4px;
+	box-shadow: none;
+}
+
+#start p, #select p {
+	margin-top: 6px;
+	font-weight:bold;
+	color: rgba(0,0,0,0.40);
+}
+
+.content_arrow_a_b {
+	display: flex;
+	flex-direction: row;
+	color: white;
+	font-weight: bold;
+	justify-content:space-between;
+	text-align: center;
+}
+
+.content_arrow_a_b > div > a {
+	padding: 16px 0;
+}
+
+#btnA, #btnB {
+	background-color: #222;
+	height: 18px;
+	width: 50px;
+	border-radius: 50px;
+	box-shadow: 0px 4px 0px black;
+}
+
+#btnB {
+	margin-top: 25px;
+}
+
+#btnA:active, #btnB:active {
+	margin-top: 4px;
+	margin-bottom: -4px;
+	box-shadow: none;
+}
+
+#btnB:active {
+	margin-top: 29px;
+}
+
+#top, #middle, #left, #right, #bottom {
+	height: 18px;
+	width: 50px;
+	font-size: 16px;
+	background-color: #222;
+	display: inline-block;
+	overflow: hidden;
+	box-shadow: 0px 4px 0px black;
+}
+
+#top:active, #left:active, #right:active, #bottom:active {
+	margin-top: 4px;
+	margin-bottom: -4px;
+	box-shadow: 0px -4px 0px #222;
+}
+
+#left:active, #right:active {
+	height: 14px;
+}
+
+#middle {
+	box-shadow: none;
+}
+
+#top, #bottom {
+	display: block;
+}
+
+#left {
+	margin-left: -50px;
+}
+
+#top	{ border-radius: 4px 4px 0 0; }
+#right	{ border-radius: 0 4px 4px 0; }
+#bottom { border-radius: 0 0 4px 4px; }
+#left	{ border-radius: 4px 0 0 4px; }
+
+#left, #right, #bottom {
+	line-height: 24px;
+}
+
+.btn_a_b {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	margin-top: 62px;
+	margin-right: 27px;
+	font-family: sans-serif;
+	line-height: 21px;
+}
+
+.arrow p {
+	margin: 0;
+}
+
+.arrow {
+	margin-left: 75px;
+	margin-top: 25px;
+	margin-bottom: 75px;
+	font-size: 0px;
+}

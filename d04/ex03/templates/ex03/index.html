@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex03</title>
+	<link rel="stylesheet" href="{% static 'ex03/style.css' %}">
+</head>
+<body>
+	<table>
+		<tr>
+			<th>noir</th>
+			<th>rouge</th>
+			<th>bleu</th>
+			<th>vert</th>
+		</tr>
+		{% for i in range(0,3)%}
+		<tr>
+			{% for l in color %}
+				<td>{{ l }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>

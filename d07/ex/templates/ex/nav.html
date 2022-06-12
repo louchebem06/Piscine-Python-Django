@@ -1,0 +1,18 @@
+<nav style="display: flex; gap:10px; align-items: center;">
+	<a href="{% url 'Home' %}">Home</a> |
+	<a href="{% url 'Articles' %}">Last Articles</a> |
+	{% if request.user.username %}
+	<a href="{% url 'Favourites' %}">Favourites</a> |
+	<a href="{% url 'Publications' %}">Publications</a> |
+	<p>Logged as {{ request.user.username }}</p> |
+	<a href="{% url 'Logout' %}">logout</a>
+	{% else %}
+	<a href="{% url 'Register' %}">Register</a> |
+	<form action={% url 'Login' %} method='POST'>
+		{% csrf_token %}
+		<input type="text" name="name" placeholder="username">
+		<input type="password" name="password" placeholder="password">
+		<input type="submit" value="Conexion">
+	</form>
+	{% endif %}
+</nav>

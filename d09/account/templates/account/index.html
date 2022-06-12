@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<title>Account</title>
+</head>
+<body>
+	<p id="msg">Logged as {{ request.user.username }}</p>
+	<button id="logout">Logout</button>
+	<input type="text" placeholder="Username" name="username" id="username" required/>
+	<input type="password" placeholder="Password" name="password" id="password" required/>
+	<button id="login">Login</button>
+	{% csrf_token %}
+<script>
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+</script>
+	<script type="text/javascript">
+		$( document ).ready(function(){
+			{% if request.user.username %}
+			$("#login").hide()
+			$("#password").hide()
+			$("#username").hide()
+			{% else %}
+			$("#msg").hide()
+			$("#logout").hide()
+			{% endif %}
+			$('#login').click(function(){
+				$.ajax({
+					type: "POST",
+					url: "ajax/login",
+					dataType: "json",
+					data: {
+						"username" : $('#username').val(),
+						"password" : $('#password').val()
+					},
+					success: function(data) {
+						if (data.error) {
+							$('#msg').text(data.error)
+							$("#msg").show()
+							$('#password').val("")
+						} else if (data.success) {
+							$('#msg').text(data.success)
+							$("#username").hide()
+							$("#password").hide()
+							$("#submit").hide()
+							$("#login").hide()
+							$("#msg").show()
+							$("#logout").show()
+							$('#username').val("")
+							$('#password').val("")
+						}
+					}
+				})
+			})
+
+			$('#logout').click(function(){
+				$.ajax({
+					type: "POST",
+					url: "ajax/logout",
+					dataType: "json",
+					data: {},
+					success: function(data) {
+						$("#username").show()
+						$("#password").show()
+						$("#submit").show()
+						$("#msg").hide()
+						$("#logout").hide()
+						$("#login").show()
+					}
+				})
+			})
+		})
+
+
+		$.ajaxSetup({ 
+			beforeSend: function(xhr, settings) {
+				function getCookie(name) {
+					var cookieValue = null;
+					if (document.cookie && document.cookie != '') {
+						var cookies = document.cookie.split(';');
+						for (var i = 0; i < cookies.length; i++) {
+							var cookie = jQuery.trim(cookies[i]);
+							// Does this cookie string begin with the name we want?
+							if (cookie.substring(0, name.length + 1) == (name + '=')) {
+								cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								break;
+							}
+						}
+					}
+					return cookieValue;
+				}
+				if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+					// Only send the token to relative URLs i.e. locally.
+					xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+				}
+			} 
+	   });
+	</script>
+</body>
+</html>

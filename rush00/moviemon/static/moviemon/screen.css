@@ -1,0 +1,153 @@
+#screen {
+    color: white;
+    position: relative;
+}
+
+#screen h1,
+#screen h2,
+#screen h3,
+#screen h4 {
+    font-size: 16px;
+    line-height: 16px;
+    padding-left: 5px;
+}
+
+#screen .ask_press {
+    color: darkblue;
+    list-style: none;
+    padding: 0 0 0 5px;
+}
+
+#screen .ask_press.right {
+    position: absolute;
+    top: 0;
+    left: 125%;
+    width: 200px;
+}
+
+#screen span.key {
+    padding: 4px;
+    background: black;
+    color: white;
+    font-size: 14px;
+    border-radius:4px;
+}
+
+#screen .ask_press li.red { color: grey; }
+#screen .ask_press li.red span.key { color: grey; }
+
+#screen li.select::before { content: '> '; }
+#screen li.select::after { content: ' <'; }
+#screen li.select { color: orange; }
+
+#screen table#map {
+    border: 1px solid darkgreen;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#screen #map td {
+    border: 1px solid darkgreen;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1px;
+}
+
+#screen .flash-info {
+    display: block;
+    background: rgba(48, 48, 48, 0.5);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-top: 3px solid rgba(48, 48, 48, 0.8);
+}
+
+#screen p.center {
+    text-align: center;
+}
+
+#movieball-count {
+    position: absolute;
+    padding
+    top: 0;
+    right: 0;
+}
+
+#movieball-count p {
+    margin: 4px 6px;
+}
+
+#screen .flash-info p {
+    font-family: monospace;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0px;
+}
+
+#screen #player {
+    width: 100%;
+    margin-top:-50%;
+}
+
+.moviemonItem, .moviedex {
+	height: calc(var(--screenSize) - 20px);
+	width: calc(var(--screenSize) - 20px);
+	overflow: auto;
+	margin: 10px;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.moviemonItem::-webkit-scrollbar, .moviedex::-webkit-scrollbar {
+	display: none;
+}
+
+.moviemonItem img {
+	height: calc(var(--screenSize) / 2);
+	float: right;
+}
+
+.moviemonItem h1, .moviedex h1{ text-align: center; }
+
+.moviedex div p {
+	font-size: 12px;
+	width: 100%;
+}
+
+.active_monster {
+	border-radius: 10px;
+	padding: 3px;
+	border: 1px solid blue;
+}
+
+.moviedex div {
+	display: flex;
+	flex-direction: row;
+	line-height: 25px;
+	height: 50px;
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.moviedex div img {
+	height: 50px;
+	width: auto;
+	display: block;
+	border-radius: 10px;
+}
+
+.battle h1 {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.battle img {
+	display: block;
+	margin: auto;
+	max-width: 50%;
+    max-height: 180px;
+}

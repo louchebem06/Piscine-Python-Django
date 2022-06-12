@@ -1,0 +1,5 @@
+<ul class="slot_selector.html">
+    <li {% if select == 0 %}class="select"{% endif %}>Slot A: {{ score.a | default:"Free" }}</li>
+    <li {% if select == 1 %}class="select"{% endif %}>Slot B: {{ score.b | default:"Free" }}</li>
+    <li {% if select == 2 %}class="select"{% endif %}>Slot C: {{ score.c | default:"Free" }}</li>
+</ul>

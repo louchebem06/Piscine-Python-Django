@@ -1,0 +1,13 @@
+{% if request.COOKIES.pseudo %}
+<nav>
+	<a href="/">Life Pro Tips</a>
+	{% if request.user.username %}
+	Hello {{ request.user.username }}!
+	<a href="logout">logout</a>
+	{% else %}
+	Hello {{ request.COOKIES.pseudo }}!
+	<a href="registration">registration</a>
+	<a href="login">login</a>
+	{% endif %}
+</nav>
+{% endif %}

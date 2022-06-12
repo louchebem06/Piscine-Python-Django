@@ -1,0 +1,18 @@
+{% extends 'ex/list.html' %}
+
+{% block title %}
+<title>Favourite List</title>
+{% endblock %}
+
+{% block loop %}
+	{% for article in object_list %}
+	<tr>
+		<td>{{ article.article.title }}</td>
+		<td>{{ article.article.author }}</td>
+		<td>{{ article.article.created }}</td>
+		<td>{{ article.article.synopsis|slice:":20" }} {% if article.article.synopsis|length > 20 %}...{% endif %}</td>
+		<td><a href={% url 'Detail' pk=article.article.id %}>detail</a></td>
+		<td>{{ article.article.created|timesince }}</td>
+	</tr>
+	{% endfor %}
+{% endblock %}

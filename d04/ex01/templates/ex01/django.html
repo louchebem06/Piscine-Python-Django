@@ -1,0 +1,47 @@
+{% extends "ex01/base.html" %}
+
+{% block content %}
+<p>Django est un cadre de développement web open source en Python. Il a pour but de rendre le développement web 2.0 simple et rapide. Pour cette raison, le projet a pour slogan « Le framework pour les perfectionnistes avec des deadlines ». Développé en 2003 pour le journal local de Lawrence (État du Kansas, aux États-Unis), Django a été publié sous licence BSD à partir de juillet 2005.
+
+Depuis juin 2008, la Django Software Foundation s'occupe du développement et de la promotion du cadre. En plus de cette promotion régulière, des conférences entre développeurs et utilisateurs de Django sont organisées deux fois par an depuis 2008. Nommées DjangoCon, une se déroule en Europe et l'autre aux États-Unis.
+
+Plusieurs sites grand public sont désormais fondés sur Django, dont Pinterest3 et Instagram4 au moins en 2011 ou encore Mozilla5.
+
+
+Principes
+
+Capture d'écran de l'interface d'administration.
+Django est un cadre de développement qui s'inspire du principe MVC ou MTV (la vue est gérée par un gabarit) composé de trois parties distinctes :
+
+Un langage de gabarits flexible qui permet de générer du HTML, XML ou tout autre format texte ;
+Un contrôleur fourni sous la forme d'un « remapping » d'URL à base d'expressions rationnelles ;
+Une API d'accès aux données est automatiquement générée par le cadre compatible CRUD. Inutile d'écrire des requêtes SQL associées à des formulaires, elles sont générées automatiquement par l'ORM.
+En plus de l'API d'accès aux données, une interface d'administration fonctionnelle est générée depuis le modèle de données. Un système de validation des données entrées par l'utilisateur est également disponible et permet d'afficher des messages d'erreur automatiques.
+
+Sont également inclus :
+
+un serveur web léger permettant de développer et tester ses applications en temps réel sans déploiement ;
+un système élaboré de traitement des formulaires muni de widgets permettant d'interagir entre du HTML et une base de données. De nombreuses possibilités de contrôles et de traitements sont fournies ;
+un cadre de cache web pouvant utiliser différentes méthodes (MemCached, système de fichier, base de données, personnalisé) ;
+le support de classes intermédiaires (intergiciel) qui peuvent être placées à des stades variés du traitement des requêtes pour intégrer des traitements particuliers (cache, internationalisation, accès…) ;
+une prise en charge complète d'Unicode.
+Django peut être considéré comme une boîte à outils où chaque module peut fonctionner de façon indépendante.
+
+Un exemple de cette modularité est la plate-forme de développement Google App Engine, où l'ORM de base a été remplacé par une API sur les BigTable de Google. Guido Van Rossum, le créateur du langage Python, a activement participé à cette plate-forme.
+
+Histoire
+Le cadre a été originellement développé pour un journal local de la ville de Lawrence, dans le Kansas, à partir de 2003, par Adrian Holovaty et Simon Willison (en)6,7,8. L'idée d'origine du cadre était de permettre de développer des sites web complets, interfacés avec une base de données, dans un laps de temps très court8. Le but de Django à l'origine est de répondre aux contraintes des journalistes : l'administration générée par le cadre permet ainsi un développement aisé de fonctionnalités axé « contenu ». Le cadre se voulait également accessible, afin d'éviter le recrutement d'experts en développement pour les journaux8. Le cadre a été nommé ainsi en souvenir de Django Reinhardt, musicien de jazz6,7.
+
+En 2005, l'agence de presse décide de publier le cadre au public, sous la licence BSD6. C'est depuis cette ouverture que sa notoriété augmente. Il sera repris plus tard, en juin 2008 par la fondation Django Software9 qui maintient encore aujourd'hui la communauté et le développement du cadre. À la suite de cette reprise, la version 1.0 du cadre sort quelques mois plus tard10. À partir de cette version, les mises à jour se stabilisent à une version majeure annuelle.
+
+En juin 2015, une politique de publication est mise au point, pour sortir une nouvelle version tous les huit mois, et une version avec un support étendu tous les deux ans11. À cette occasion, il est annoncé que le support de Python 2 ne serait probablement assuré que jusqu'à la version 1.11, qui sera la dernière de la branche 1.x11.
+
+Historique des versions
+Après la mise à disposition public par le journal Lawrence, le développement open-source de Django commence à la version 0.90. Les premières versions sont numérotés jusqu'à 0.96 et ont pour but de stabiliser l'interface de programmation principale, et chaque version apporte donc de nombreuses modifications dans la façon d'utiliser le cadre12. La sortie de la version 1.0 marque le début de la maturité du cadre, avec une interface qui se veut compatible avec les versions futures13. Un guide est publié pour permettre aux utilisateurs de migrer de Django 0.96 à 1.014.
+
+Pendant le développement de la branche « Django 1.x », le cycle de développement n'a pas de rythme défini mais respecte la convention de nommage de version suivante15 :
+
+Chaque nouvelle version majeure est numérotée 1.x.0, où x est incrémenté par rapport à la version précédente et apporte de nouvelles fonctionnalités et éventuellement des incompatibilités avec les versions précédentes ;
+Des correctifs de sécurité et de bugs sont fournis sous la forme 1.x.y, sans ajouter de nouvelles fonctionnalités et se veut rétrocompatible.
+En juin 2015, à la suite d'un sondage et des discussions entre développeurs, une feuille de route est formalisée, avec un rythme de publication facilitant la maintenance des projets et des applications tierces11. Une nouvelle version du cadre est désormais publiée tous les huit mois, avec une long term support (LTS) tous les trois versions, c'est-à-dire tous les deux ans. Ces versions bénéficient de mises à jour de sécurité pendant une période d'au moins trois ans16. La numérotation des versions est par conséquent revue, permettant une maintenance plus aisée pour les utilisateurs du cadre : la version suivant une LTS entraînera la suppression des éléments dépréciés depuis la précédente LTS et commencera un nouveau cycle de version majeure11,17. Ainsi, à partir de Django 2.0, les versions seront 2.1, 2.2 LTS, 3.0, 3.1, 3.2 LTS, etc.</p>
+{% endblock%}

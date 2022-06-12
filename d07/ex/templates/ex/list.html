@@ -1,0 +1,32 @@
+{% extends 'ex/base.html' %}
+
+{% block title %}
+<title>My List</title>
+{% endblock %}
+
+{% block content %}
+{% block publish %}
+{% endblock %}
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Created</th>
+		<th>Synopsis</th>
+		<th>Detail</th>
+		<th>Time</th>
+	</tr>
+	{% block loop %}
+		{% for article in object_list %}
+		<tr>
+			<td>{{ article.title }}</td>
+			<td>{{ article.author }}</td>
+			<td>{{ article.created }}</td>
+			<td>{{ article.synopsis|slice:":20" }} {% if article.synopsis|length > 20 %}...{% endif %}</td>
+			<td><a href={% url 'Detail' pk=article.id %}>detail</a></td>
+			<td>{{ article.created|timesince }}</td>
+		</tr>
+		{% endfor %}
+	{% endblock %}
+</table>
+{% endblock %}

@@ -1,0 +1,4 @@
+include LICENSE
+include README.rst
+recursive-include ex_module/static *
+recursive-include ex_module/templates *

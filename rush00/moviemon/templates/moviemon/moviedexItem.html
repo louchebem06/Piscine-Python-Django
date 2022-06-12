@@ -1,0 +1,16 @@
+{% extends "moviemon/base.html" %}
+
+{% block content %}
+	<div class="moviemonItem">
+		<h1>{{ name }}</h1>
+		<img class="movidexitem" alt="img moviemon" src="{{ poster }}">
+		<p><b><i>Score</i></b> : {{ score }}</p>
+		<p><b><i>Director</i></b> : {{ director }}</p>
+		<p><b><i>Years</i></b> : {{ years }}</p>
+		<p><b><i>Synopsis</i></b> : {{ synopsis }}</p>
+		<p><b><i>Actors</i></b> : {{ actors }}</p>
+	</div>
+    <ul class="ask_press right">
+        <li><span class="key">B</span> - Return to the Moviedex</li>
+    </ul>
+{% endblock %}

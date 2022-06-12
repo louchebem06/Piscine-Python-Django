@@ -1,0 +1,16 @@
+{% extends "moviemon/base.html" %}
+
+{% block content %}
+    <h1 class="title-screen">Load game</h1>
+    {% include "moviemon/elements/slot_selector.html" %}
+    <ul class="ask_press">
+        {% if btn.a and select_isLoaded %}
+            <li><span class="key">A</span> - Start game</li>
+        {% else %}
+            <li {% if not btn.a %}class="red"{% endif %}><span class="key">A</span> - Load</li>
+        {% endif %}
+        <li><span class="key">B</span> - Cancel</li>
+        <li {% if select == 0 %}class="red"{% endif %}><span class="key">▲</span> - Move top</li>
+        <li {% if select == 2 %}class="red"{% endif %}><span class="key">▼</span> - Move bottom</li>
+    </ul>
+{% endblock %}

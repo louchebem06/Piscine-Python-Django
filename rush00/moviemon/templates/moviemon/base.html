@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'moviemon/style.css' %}">
+	<link rel="stylesheet" href="{% static 'moviemon/screen.css' %}">
+	<title>{{ title }}</title>
+</head>
+<body>
+	<div id="gameboy">
+		<div class="backlight">
+			<div class="content-screen">
+				<div class="power">
+					<div class="content_power">
+						<div class="bulle red"></div>
+						<div class="demi-bulle grey"></div>
+						<div class="demi-bulle grey"></div>
+						<div class="demi-bulle grey"></div>
+					</div>
+					<p>POWER</p>
+				</div>
+				<div id="screen">
+					{% block content %}{% endblock %}
+				</div>
+				<div class="empty">
+				</div>
+			</div>
+			<div id="logo">
+				<p>GAME BOY</p>
+				<p>C</p><p class="o">O</p><p class="l">L</p><p class="o">O</p><p>R</p>
+			</div>
+		</div>
+		<div class="nintendo_logo">
+			<p>Nintendo</p>
+		</div>
+		<div class="content_arrow_a_b">
+			<div class="arrow">
+				<a title="W" href="{{ btn.top | default:"#" }}" id="top">▲</a>
+				<a title="A" href="{{ btn.left | default:"#" }}" id="left">◀</a>
+				<a id="middle"></a>
+				<a title="D" href="{{ btn.right | default:"#" }}" id="right">▶</a>
+				<a title="S" href="{{ btn.bottom | default:"#" }}" id="bottom">▼</a>
+			</div>
+			<div class="btn_a_b">
+				<a title="L" href="{{ btn.b | default:"#" }}" id="btnB" class="button_select">B</a>
+				<a title="P" href="{{ btn.a | default:"#" }}" id="btnA" class="button_select">A</a>
+			</div>
+		</div>
+		<div class="start-select">
+			<a title="B" href="{{ btn.select | default:"#" }}" id="select">
+				<div class="button_option"></div>
+				<p>SELECT</p>
+			</a>
+			<a title="N" href="{{ btn.start | default:"#" }}" id="start">
+				<div class="button_option"></div>
+				<p>START</p>
+			</a>
+		</div>
+	</div>
+	<script>
+		window.addEventListener("keydown", function (event) {
+			let table = {
+				'KeyW': 'top',
+				'KeyS': 'bottom',
+				'KeyA': 'left',
+				'KeyD': 'right',
+				'KeyP': 'btnA',
+				'KeyL': 'btnB',
+				'KeyB': 'select',
+				'KeyN': 'start',
+			}
+			const id = table[event.code]
+			if (id)
+				window.location = document.getElementById(id).href;
+			else
+				return true;
+		})
+		/* easter eggs */
+		document.getElementById('logo').addEventListener("click", function (event) {
+			console.log(event.target, event.target.tagName, event.target.textContent.length)
+			if (event.target.tagName === "P" && event.target.textContent.length === 1) {
+				let color = event.target.style.color
+				if (!color)
+					color = document.defaultView.getComputedStyle(event.target, null).getPropertyValue('color')
+				if (!color)
+					return
+				document.getElementById('gameboy').style.backgroundColor = color
+				sessionStorage.setItem('color', color)
+			}
+		})
+		;(function () {
+			const color = sessionStorage.getItem('color')
+			document.getElementById('gameboy').style.backgroundColor = color
+		})()
+	</script>
+</body>
+</html>

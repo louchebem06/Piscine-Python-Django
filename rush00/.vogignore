@@ -1,0 +1,4 @@
+.gitignore
+.vogignore
+/hooks/
+!rush00/env.py

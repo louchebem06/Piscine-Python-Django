@@ -1,0 +1,25 @@
+{% extends "moviemon/base.html" %}
+
+{% block content %}
+<div id="movieball-count"><p>{{ chance|floatformat:0 }}% ◒ {{ movieball }}</p></div>
+    <div class="battle">
+        <h1>{{ message }}</h1>
+        <img alt="monster" src="{{ monster.Poster }}" />
+		<p class="center">
+            {{ monster.Title }} lvl {{ monster.imdbRating|floatformat:2 }}
+            vs
+            me lvl {{ strength|floatformat:2 }}
+        </p>
+    </div>
+    <ul class="ask_press right">
+        <li {% if btn.a == '#' %}class="red"{% endif %}><span class="key">A</span> - Throw a movieball</li>
+        <li><span class="key">B</span> - Return to the worldmap</li>
+    </ul>
+    {% if btn.a != '#' %}
+        <p class="center"><span class="key">A</span> - Throw a movieball</p>
+    {% elif captured %}
+        <p class="center"><span class="key">B</span> - Return to the worldmap</p>
+    {% else %}
+        <p class="center">Hahaha ! You can no longer capture this one.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{doctype}
+{htmlOpen}
+{headOpen}
+	{title}
+{headClose}
+{bodyOpen}
+	<h1>CV de {name} {surname}</h1>
+	<p>Age : {age}</p>
+	<p>Metier : {pro}</p>
+{bodyClose}
+{htmlClose}

@@ -1,0 +1,13 @@
+* {
+	background-image: url("https://img2.wallspic.com/previews/0/3/7/1/5/151730/151730-pattern-violet-magenta-red-design-x750.jpg");
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+img {
+	display: block;
+	width: 100px;
+}

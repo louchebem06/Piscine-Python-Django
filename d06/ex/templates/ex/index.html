@@ -1,0 +1,39 @@
+{% extends "ex/base.html" %}
+
+{% block content %}
+
+{% if form %}
+<form method="POST">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Send tip" />
+</form>
+{% endif %}
+
+{{ votes }}
+
+<table>
+	<tr>
+		<th>Author</th>
+		<th>Messsage</th>
+		<th>Date</th>
+		<th>UP</th>
+		<th>DOWN</th>
+	</tr>
+{% for tip in tips %}
+	<tr>
+		<td>{{ tip.2 }}</td>
+		<td>{{ tip.1 }}</td>
+		<td>{{ tip.3 }}</td>
+		<td>{{ tip.4 }}</td>
+		<td>{{ tip.5 }}</td>
+		{% if request.user.username %}
+		<td><button onclick="window.location.href='vote_tip/{{ tip.0 }}/1';">UpVote</button></td>
+		<td><button onclick="window.location.href='vote_tip/{{ tip.0 }}/0';">DownVote</button></td>
+		<td><button onclick="window.location.href='delete_tip/{{ tip.0 }}';">Delete</button></td>
+		{% endif %}
+	</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

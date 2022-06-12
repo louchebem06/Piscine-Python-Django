@@ -1,0 +1,5 @@
+asgiref==3.5.2
+Django==4.0.5
+django-ex-module @ file:///Users/bledda/d08/django-ex_module/dist/django-ex_module-1.0.tar.gz
+sqlparse==0.4.2
+uWSGI==2.0.20

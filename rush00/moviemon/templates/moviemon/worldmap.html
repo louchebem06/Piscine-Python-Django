@@ -1,0 +1,45 @@
+{% extends "moviemon/base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <style>
+        #screen #map td {
+            height: {{ height_td }}%;
+        }
+    </style>
+    <div id="movieball-count"><p>◒ {{ movieball }}</p></div>
+    <table id="map">
+        <tbody>
+        {% for y in rangeY %}
+            <tr>
+            {% for x in rangeX %}
+                <td>
+                    {% if playerX == x and playerY == y %}
+                        <img id="player" src="{% static 'moviemon/player.png' %}">
+                    {% endif %}
+                </td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if flushedout or lootSomething %}
+        <div class="flash-info">
+            {% if flushedout %}
+                <p>A Moviemon flushed out !</p>
+            {% else %}
+                <p>A Movieball is found !</p>
+            {% endif %}
+        </div>
+    {% endif %}
+    <ul class="ask_press right">
+        <li {% if not flushedout %}class="red"{% endif %}><span class="key">A</span> - Launch a battle</li>
+        <li><span class="key">START</span> - Options page</li>
+        <li><span class="key">SELECT</span> - Moviedex</li>
+        <li {% if btn.top == '#' %}class="red"{% endif %}><span class="key">▲</span> - Move top</li>
+        <li {% if btn.bottom == '#' %}class="red"{% endif %}><span class="key">▼</span> - Move bottom</li>
+        <li {% if btn.left == '#' %}class="red"{% endif %}><span class="key">◀</span> - Move left</li>
+        <li {% if btn.right == '#' %}class="red"{% endif %}><span class="key">▶</span> - Move right</li>
+    </ul>
+{% endblock %}
